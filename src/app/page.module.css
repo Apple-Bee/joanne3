@@ -1,22 +1,32 @@
 /* pages/Page.module.css */
-
-.main {
-  position: relative;
+.cointainer{
+  position: absolute;
+  max-height: max-content;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  top: 50px;
-  left: 50px;
+  
+}
+
+.main {
+  position:relative;
+  display: flex;
+  flex-direction:column;
+  padding-top: 80px;
   padding: 20px;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 70vh;
+  margin-bottom: 20px; 
   gap: 20px;
 }
 
 .card {
+  max-width: 10rem;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -57,6 +67,12 @@
 
 .home_btn:hover {
   background-color: #0056b3;
+}
+.backgroundImage {
+  background-image: url('/backround.jpg'); /* Adjust the path to your background image */
+  background-size: cover;
+  background-position: center;
+  /* Additional background image styles */
 }
 
 
