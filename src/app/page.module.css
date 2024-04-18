@@ -27,16 +27,17 @@
 
 .card {
   max-width: 10rem;
-  background-color: #fff;
+  background-image: linear-gradient(transparent 0%, transparent 50%, rgb(190, 238, 231) 100%);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   padding: 20px;
   transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) rotateX(5deg) scale(1.05);
 }
+
 
 .productImage {
   width: 100%;

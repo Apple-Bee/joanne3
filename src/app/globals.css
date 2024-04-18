@@ -18,6 +18,8 @@ main {
   background-image: url('/backround.jpg'); /* Adjust the path to your background image */
   background-size: cover;
   background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   /* Additional background image styles */
 }
 
@@ -42,6 +44,6 @@ a {
 
 @media (prefers-color-scheme: dark) {
   html {
-    color-scheme: none;
+    color-scheme: dark;
   }
 }

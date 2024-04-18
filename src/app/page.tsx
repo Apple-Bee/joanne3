@@ -13,7 +13,6 @@ const Home: React.FC = () => {
   ];
 
   return (
-    
     <div className={styles.container}>
       <main className={styles.main}>
         {/* Use CSS to set background image */}
