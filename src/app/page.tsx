@@ -1,9 +1,8 @@
 import React from 'react';
 import Navbar from '../components/navbar';
-// Import Footer if needed
-// import Footer from '../components/footer';
-
 import styles from './page.module.css';
+import CheckoutItem from '../components/CheckoutItem';
+import ScrollListenerComponent from '../components/ScrollListenerComponent';
 
 const Home: React.FC = () => {
   // Sample product data
@@ -15,8 +14,10 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.container}>
+      
       <Navbar />
-      {/* Use CSS to set background image */}
+
+              {/* Use CSS to set background image */}
       <h1 className={styles.home_h1}></h1>
       <div className={styles.grid}>
         {products.map((product) => (
@@ -25,10 +26,11 @@ const Home: React.FC = () => {
             <h2 className={styles.home_h2}>{product.name}</h2>
             <p className={styles.home_p}>${product.price.toFixed(2)}</p>
             <button className={styles.buy_btn}>Add to Cart</button>
+
           </div>
         ))}
       </div>
-      {/* Include Footer component if needed */}
+      {}
       {/* <Footer /> */}
     </div>
   );

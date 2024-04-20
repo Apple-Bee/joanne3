@@ -1,0 +1,159 @@
+.grid {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%; /* Place the grid at the horizontal center */
+    transform: translateX(-50%); /* Adjust to center the grid relative to its own width */
+    width: calc(100% - 50rem); /* Adjust the width based on your layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+  
+  .card {
+    max-width: 10rem;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(1.1px);
+  -webkit-backdrop-filter: blur(1.1px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+    padding: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px) rotateX(5deg) scale(1.05);
+  }
+  
+  
+  .productImage {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .home_h1{
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .home_h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .home_p {
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  .buy_btn {
+    width: 100%;
+    background-color: #1700a97e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: rgba(13, 65, 105, 0.508);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(1.1px);
+  -webkit-backdrop-filter: blur(1.1px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+    padding: 15px;
+    transition: transform 0.3s ease;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buy_btn:hover {
+    background-color: #00b30f89;
+  }
+  
+/*SHOP */
+
+.dropdown > span {
+    cursor: pointer;
+    font-size: 8.2rem; /* Adjust the font size as needed */
+  }
+
+.categoriesSection {
+    position: fixed;
+    bottom: 40rem;
+    left: 50%; /* Place the grid at the horizontal center */
+    transform: translateX(-50%); /* Adjust to center the grid relative to its own width */
+    width: calc(100% - 50rem); /* Adjust the width based on your layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 0 auto;
+    max-width: 1000px;
+   
+  }
+  
+  .categoriesHeading {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .categoriesList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .categoriesList li {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  .link {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  /* Styling for dropdown container */
+  .dropdown {
+    position: relative;
+  }
+  
+  /* Styling for dropdown trigger */
+  .dropdown > span {
+    cursor: pointer;
+  }
+  
+  /* Styling for dropdown content */
+  .dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Styling for dropdown content links */
+  .dropdownContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Styling for dropdown content links on hover */
+  .dropdownContent a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show the dropdown content when the dropdown trigger is hovered over */
+  .dropdown:hover .dropdownContent {
+    display: block;
+  }
