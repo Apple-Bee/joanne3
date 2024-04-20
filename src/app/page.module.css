@@ -1,36 +1,28 @@
-/* pages/Page.module.css */
-.cointainer{
-  position: absolute;
-  max-height: max-content;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  
-}
-
-.main {
-  position:relative;
-  display: flex;
-  flex-direction:column;
-  padding-top: 80px;
-  padding: 20px;
-}
-
 .grid {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%; /* Place the grid at the horizontal center */
+  transform: translateX(-50%); /* Adjust to center the grid relative to its own width */
+  width: calc(100% - 50rem); /* Adjust the width based on your layout */
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 70vh;
-  margin-bottom: 20px; 
-  gap: 20px;
+  align-items: center;  
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: 0 auto;
+  max-width: 1000px;
 }
 
 .card {
   max-width: 10rem;
-  background-image: linear-gradient(transparent 0%, transparent 50%, rgb(190, 238, 231) 100%);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-  padding: 20px;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.10);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+backdrop-filter: blur(1.1px);
+-webkit-backdrop-filter: blur(1.1px);
+border: 1px solid rgba(255, 255, 255, 0.13);
+  padding: 15px;
   transition: transform 0.3s ease;
 }
 
@@ -42,6 +34,10 @@
 .productImage {
   width: 100%;
   border-radius: 8px;
+  margin-bottom: 10px;
+}
+.home_h1{
+  font-size: 2rem;
   margin-bottom: 10px;
 }
 
@@ -56,8 +52,8 @@
 
 
 
-.home_btn {
-  padding: 10px 20px;
+.buy_btn {
+  padding: 10px 31px;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -66,14 +62,8 @@
   transition: background-color 0.3s ease;
 }
 
-.home_btn:hover {
+.buy_btn:hover {
   background-color: #0056b3;
-}
-.backgroundImage {
-  background-image: url('/backround.jpg'); /* Adjust the path to your background image */
-  background-size: cover;
-  background-position: center;
-  /* Additional background image styles */
 }
 
 

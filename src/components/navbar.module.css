@@ -1,0 +1,60 @@
+/* Navbar.module.css */
+.container {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  background: none;
+  align-items: center;
+  justify-content: space-between;
+  font-family:monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.logoImage {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  border-radius: 20rem;
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  /* From https://css.glass */
+  background: none;
+  border-radius: none;
+  border: none;
+}
+
+.centerLinks{
+  display: flex;
+  flex: 1; /* Add this line */
+  justify-content: center;
+  align-items: center;
+}
+
+.centerLinks a {
+  color: white;
+  text-decoration: none;
+  font-size: 2.5rem;
+  margin: 0 10px;
+}
+
+
+
+.centerLinks a:hover {
+  color: lightgray;
+}
+
+
+  

@@ -2,45 +2,34 @@
 
 * {
   box-sizing: border-box;
+  align-content: center;
   padding: 0;
   margin: 0;
 }
 
 html,
 body {
-  max-width: 100vw;
   overflow-x: hidden;
+  background-image: url('/backround.jpg'); /* Adjust the path to your background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 2000
 }
 
 
   
 main {
-  background-image: url('/backround.jpg'); /* Adjust the path to your background image */
-  background-size: cover;
-  background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  position: fixed;
   /* Additional background image styles */
 }
 
 
 
-body {
-  background-position: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #212121;
-  background-color: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
 
 @media (prefers-color-scheme: dark) {
   html {
