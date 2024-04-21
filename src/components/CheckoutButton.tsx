@@ -1,8 +1,16 @@
-// CheckoutButton.tsx
 import React from 'react';
-//import checkout from '../app/cart/checkout';
 
-const CheckoutButton: React.FC = () => {
+interface Item {
+  id: number;
+  name: string;
+  price: number;
+}
+
+interface Props {
+  item?: Item; // Make the item prop optional
+}
+
+const CheckoutButton: React.FC<Props> = ({ item }) => {
   const handleCheckout = () => {
     // Implement checkout functionality
     console.log('Proceed to checkout');
@@ -14,3 +22,4 @@ const CheckoutButton: React.FC = () => {
 };
 
 export default CheckoutButton;
+

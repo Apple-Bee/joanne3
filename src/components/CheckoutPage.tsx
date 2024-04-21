@@ -1,27 +1,40 @@
-// CheckoutPage.tsx
 import React from 'react';
-import CheckoutItem from '../components/CheckoutItem';
-import CheckoutSummary from '../components/CheckoutSummary';
 
+// Define the type for an individual item
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: string;
+}
 
-const CheckoutPage: React.FC = () => {
-  // Sample checkout data
-  const checkoutItems = [
-    { id: 1, name: 'Product 1', quantity: 2, price: 19.99 },
-    { id: 2, name: 'Product 2', quantity: 1, price: 24.99 },
-  ];
+// Define the type for props
+interface Props {
+  checkoutItems: Product[]; // Define checkoutItems prop as an array of Product
+}
 
+// Define the CheckoutPage component
+const CheckoutPage: React.FC<Props> = ({ checkoutItems }) => {
   return (
     <div>
-      <h1>Checkout</h1>
-      <div>
-        {checkoutItems.map(item => (
-          <CheckoutItem key={item.id} item={item} />
+      <h2>Checkout Items</h2>
+      <ul>
+        {checkoutItems && checkoutItems.map((item) => (
+          <li key={item.id}>
+            <div>{item.name}</div>
+            <div>Price: ${item.price.toFixed(2)}</div>
+          </li>
         ))}
-      </div>
-      <CheckoutSummary checkoutItems={checkoutItems} />
+      </ul>
     </div>
   );
 };
 
 export default CheckoutPage;
+
+
+
+
+
+
+
