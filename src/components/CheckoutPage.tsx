@@ -1,4 +1,5 @@
 import React from 'react';
+import CheckoutSummary from './CheckoutSummary';
 
 // Define the type for an individual item
 interface Product {
@@ -24,6 +25,7 @@ const CheckoutPage: React.FC<Props> = ({ checkoutItems }) => {
             <div>{item.name}</div>
             <div>Price: ${item.price.toFixed(2)}</div>
           </li>
+          
         ))}
       </ul>
     </div>

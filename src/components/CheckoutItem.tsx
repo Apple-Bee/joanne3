@@ -1,25 +1,24 @@
+// CheckoutItem.tsx
 import React from 'react';
 
-interface Item {
-  id: number;
-  name: string;
-  quantity: number;
-  price: number;
+interface CheckoutItemProps {
+  item: {
+    id: number;
+    name: string;
+    quantity: number;
+    price: number;
+  };
 }
 
-interface Props {
-  item: Item;
-}
-
-const CheckoutItem: React.FC<Props> = ({ item }) => {
+const CheckoutItem: React.FC<CheckoutItemProps> = ({ item }) => {
   return (
     <div>
-      <div>{item.name}</div>
-      <div>Price: ${item.price.toFixed(2)}</div>
-      <div>Quantity: {item.quantity}</div>
+      <h2>{item.name}</h2>
+      <p>Quantity: {item.quantity}</p>
+      <p>Price: ${item.price.toFixed(2)}</p>
+      {/* Add buttons to modify quantity or remove item */}
     </div>
   );
 };
 
 export default CheckoutItem;
-
