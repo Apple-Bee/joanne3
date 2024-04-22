@@ -10,7 +10,6 @@ const Navbar: React.FC = () => {
         <div className={styles.centerLinks}>
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
-          <Link href="/cart">Cart</Link>
           <div className={`${styles.link} ${styles.dropdown}`}> {/* Apply styles.link class */}
             <h1 className={styles.h1shop}><span>Shop</span></h1>
             <div className={styles.dropdownContent}>
@@ -19,8 +18,13 @@ const Navbar: React.FC = () => {
               <Link href="./store">Download</Link>
               <Link href="./store">Pencils</Link>
             </div>
+
           </div>
         </div>
+        <div>
+              <span className="cart-badge">0</span>
+              <Link href="/cart"> <br />Cart</Link>
+            </div>
       </nav>
     </div>
   );

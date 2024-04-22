@@ -1,12 +1,18 @@
 import React from "react";
 import Link from 'next/link';
-import Image from 'next/image'; // Assuming you're using Next.js for image optimization
+import Image from 'next/image';
+import ProductRate from "@/components/ProductRate";
+import { data } from "@/utils/data";
 
 interface ProductItemProps {
   product: {
-    id: number;
+    id: string;
     image: string;
     name: string;
+    price: number;
+    rating: number;
+    numReviews: number;
+    brand: string;
     // Add other properties of the product as needed
   };
 }
@@ -15,21 +21,26 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   return (
     <div className="card">
       <Link href={`/product/${product.id}`}>
-        <a>
-          <Image
-            src={product.image}
-            width={400}
-            height={400} // Corrected "hight" to "height"
-            alt={product.name}
-            className="rounded shadow"
-          />
-        </a>
+        <Image
+          src={`/joann.jpg`}
+          width={125}
+          height={125}
+          alt={product.name}
+          className="rounded shadow"
+        />
       </Link>
+      <div className="flex flex-col item-center justify-center p-5">
+        <Link href={`/product/${product.id}`}>
+          <h2 className="text-lg">{product.name}</h2>
+        </Link>
+        <ProductRate rate={product.rating} count={product.numReviews}/>
+        <p className="mb-2">{product.brand}</p>
+        <p>${product.price}</p>
+        <button>Add to cart</button>
+      </div>
     </div>
-    //<div className="flex flex-col items-center justify-center p-55">
-        //</div
-    
-  )
+  );
 };
 
 export default ProductItem;
+

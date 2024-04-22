@@ -19,8 +19,9 @@ const Cart: React.FC<CartProps> = ({ items, onRemoveItem }) => {
   if (!items || items.length === 0) {
     return (
       <div>
+        
         <Navbar />
-        <div className={styles.container}>Cart is empty</div>
+        
       </div>
     );
   }
