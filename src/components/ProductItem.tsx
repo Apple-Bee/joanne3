@@ -1,8 +1,10 @@
+'use client'
 import React from "react";
 import Link from 'next/link';
 import Image from 'next/image';
 import ProductRate from "@/components/ProductRate";
 import { data } from "@/utils/data";
+import AddToCart from "./AddToCart";
 
 interface ProductItemProps {
   product: {
@@ -36,7 +38,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
         <ProductRate rate={product.rating} count={product.numReviews}/>
         <p className="mb-2">{product.brand}</p>
         <p>${product.price}</p>
-        <button>Add to cart</button>
+        <AddToCart showQty={false} product={product} increasePerClick={true} redirect= {false}/>
       </div>
     </div>
   );
