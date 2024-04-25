@@ -3,7 +3,7 @@ import React, { ReactNode, useEffect } from 'react';
 import CartSidebar from './CartSidebar';
 import { useDispatch } from 'react-redux';
 import Navbar from './navbar';
-import '@/styles/globals.css';
+//import '@/styles/globals.css';
 import { hideLoading } from '@/redux/slices/cartSlice';
 
 interface AppProps {
