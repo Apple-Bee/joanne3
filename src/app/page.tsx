@@ -7,7 +7,7 @@ import Image from 'next/image';
 import ProductItem from '@/components/ProductItem';
 
 // Load CheckoutPage dynamically
-const CheckoutPage = dynamic(() => import('@/components/CheckoutPage'));
+//const CheckoutPage = dynamic(() => import('@/components/CheckoutPage'));
 
 const Home: React.FC = () => {
   // Sample product data
@@ -43,10 +43,12 @@ const Home: React.FC = () => {
                   rating: product.rating,
                   numReviews: product.numReviews,
                   brand: ' ',
+                  countInStock: product.countInStock,
+  
               }} />
           ))}
       </div>
-      <CheckoutPage checkoutItems={[]} />
+        /*CheckoutPage checkoutItems={[]} my this is reserve test /*
     </div>
   
   );

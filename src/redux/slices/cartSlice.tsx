@@ -1,5 +1,7 @@
+'use client'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
+
 
 export interface CartItem {
     id: string;
@@ -19,11 +21,9 @@ export interface CartState {
     totalPrice: string;
 }
 
-export const addDecimals = (num: number) => {
-    return (Math.round(num * 100) / 100).toFixed(2);
-}
 
-export const initialState: CartState = {
+
+export const initialCartState: CartState = {
     loading: true,
     cartItems: [],
     itemsPrice: "0.00",
@@ -32,18 +32,26 @@ export const initialState: CartState = {
     totalPrice: "0.00",
 };
 
+
+
+export const addDecimals = (num: number) => {
+    return (Math.round(num * 100) / 100).toFixed(2);
+}
+
 export const cartSlice = createSlice({
     name: 'cart',
-    initialState,
+    initialState :initialCartState,
     reducers: {
         addToCart: (state, action: PayloadAction<CartItem>) => {
-            const itemToAdd = action.payload;
-            const existingItem = state.cartItems.find(item => item.id === itemToAdd.id);
+            const item = action.payload;
+            const existingItem = state.cartItems.find((x) => x.id === item.id);
 
             if (existingItem) {
-                existingItem.quantity += 1;
+                state.cartItems = state.cartItems.map((x) =>
+                    x.id === existingItem.id ? item : x
+                );
             } else {
-                state.cartItems.push(itemToAdd);
+                state.cartItems = [...state.cartItems, item]
             }
             state.itemsPrice = addDecimals(
                 state.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)

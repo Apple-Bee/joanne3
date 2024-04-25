@@ -3,6 +3,7 @@ import React, { ReactNode, useEffect } from 'react';
 import CartSidebar from './CartSidebar';
 import { useDispatch } from 'react-redux';
 import Navbar from './navbar';
+import '@/styles/globals.css';
 import { hideLoading } from '@/redux/slices/cartSlice';
 
 interface AppProps {
@@ -21,7 +22,9 @@ const App: React.FC<AppProps> = ({ children }) => {
         <Navbar />
         
         <main>{children}</main>
+        <div className="cart-sidebar-container">
         <CartSidebar />
+        </div>
       </div>
       
     </div>

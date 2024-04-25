@@ -15,6 +15,8 @@ interface ProductItemProps {
     rating: number;
     numReviews: number;
     brand: string;
+    countInStock: number;
+
     // Add other properties of the product as needed
   };
 }
@@ -38,6 +40,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
         <ProductRate rate={product.rating} count={product.numReviews}/>
         <p className="mb-2">{product.brand}</p>
         <p>${product.price}</p>
+        <p>In Stock: {product.countInStock}</p>
         <AddToCart showQty={false} product={product} increasePerClick={true} redirect= {false}/>
       </div>
     </div>

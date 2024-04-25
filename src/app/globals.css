@@ -28,7 +28,7 @@ main {
 }
 
 .cart-badge {
-  position: relative;
+  position: absolute;
   display: inline-block;
   width: 24px;
   height: 24px;
@@ -81,6 +81,15 @@ main {
   color: #555;
   text-align: center;
 }
+.cart-sidebar-container {
+  position: fixed;
+  color: #555;
+  max-width: fit-content;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
 
 
 

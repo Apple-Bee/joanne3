@@ -1,24 +1,21 @@
-import { CartItem, addToCart } from "@/redux/slices/cartSlice";
-import { useRouter } from "next/navigation";
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { addToCart, CartItem } from "@/redux/slices/cartSlice";
+import { useRouter } from "next/navigation";
 
 interface RootState {
     cart: {
         cartItems: CartItem[];
-        // Add other properties of your cart slice state
     };
-    // Add other slices of your Redux state
 }
 
 interface AddToCartProps {
     product: {
         id: string;
         name: string;
-        countInStock?: number;
+        countInStock: number; // Ensure countInStock is always a number
         price: number;
-        // Add any other necessary properties from your product object
+        numReviews: number;
     };
     showQty?: boolean;
     redirect?: boolean;
@@ -30,9 +27,9 @@ const AddToCart: React.FC<AddToCartProps> = ({
     showQty = true,
     redirect = false,
     increasePerClick = false,
-   }) => {
+}) => {
     const dispatch = useDispatch();
-    const cartItems = useSelector((state: RootState) => state.cart.cartItems);
+    const cartItems = useSelector((state: RootState) => state.cart.cartItems );
     const router = useRouter();
     const [quantity, setQty] = useState(1);
 
@@ -40,35 +37,30 @@ const AddToCart: React.FC<AddToCartProps> = ({
         let newQty = quantity;
     
         if (increasePerClick) {
-            const existItem = cartItems.find((x: CartItem) => x.id === product.id);
+            console.log("Cart Items:", cartItems); // Log the cartItems array
+            const existItem = cartItems.find((x) => x.id === product.id);
+            console.log("Existing Item:", existItem); // Log the existItem variable
     
-            if (product.countInStock === undefined) {
-                return alert("Product stock information is unavailable.");
+            if (!existItem) {
+                console.log("Product not found in cart");
             }
     
             if (existItem && existItem.quantity + 1 <= product.countInStock) {
                 newQty = existItem.quantity + 1;
             } else {
-                return alert("No more product exists");
+                return alert("No more product exists or stock information is unavailable.");
             }
         }
     
-        // Ensure countInStock is always a number
-        const countInStock = product.countInStock ?? 0; // Defaulting to 0 if undefined
-    
-        // Assuming price is included in the product object
-        if (typeof product.price !== 'number') {
-            return alert("Product price information is missing or invalid.");
-        }
-    
-        // Destructure price from the product object
-        const { price, ...productWithoutPrice } = product;
-    
         // Dispatch the addToCart action with the correct properties
-        dispatch(addToCart({ ...productWithoutPrice, countInStock, price, quantity: newQty }));
-    
-        // Router instance
-        const router = useRouter();
+        dispatch(addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            countInStock: product.countInStock,
+            quantity: newQty,
+            // Add other properties as needed
+        }));
     
         // Redirect to the cart page if needed
         if (redirect) {
@@ -76,23 +68,39 @@ const AddToCart: React.FC<AddToCartProps> = ({
         }
     };
     
-    
-    
 
     return (
-        <div>
+        <>
             {showQty && (
-                <input
-                    type="number"
-                    value={quantity}
-                    onChange={(e) => setQty(Number(e.target.value))}
-                    min={1}
-                    max={product.countInStock}
-                />
+                <div className="show-qty">
+                    <div>QTY</div>
+                    <select
+                        value={quantity}
+                        onChange={(e) => setQty(Number(e.target.value))}
+                    >
+                        {[...Array(product.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                                {x + 1}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             )}
-            <button onClick={addToCartHandler}>Add to Cart</button>
-        </div>
+
+            <div>
+                {product.countInStock > 0 ? (
+                    <button className="add-btn" onClick={addToCartHandler}>Add to Cart</button>
+                ) : (
+                    <button disabled>Out of Stock</button>
+                )}
+            </div>
+        </>
     );
 };
 
 export default AddToCart;
+
+
+
+
+

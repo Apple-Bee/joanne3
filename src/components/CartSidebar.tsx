@@ -1,10 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { CartState } from '@/redux/slices/cartSlice'; // Adjust the import path based on your project structure
-import { removeFromCart } from '@/redux/slices/cartSlice'; // Adjust the import path based on your project structure
-import { CartItem } from '@/redux/slices/cartSlice';
+import { CartState, removeFromCart, CartItem } from '@/redux/slices/cartSlice';
 import Link from 'next/link';
-import Image from 'next/image'; // Assuming you're using Next.js Image component
+import Image from 'next/image';
 
 const CartSidebar: React.FC = () => {
   const { loading, cartItems, itemsPrice } = useSelector((state: { cart: CartState }) => state.cart);
@@ -36,23 +34,30 @@ const CartSidebar: React.FC = () => {
             </div>
             {cartItems.map((item) => (
               <div key={item.id} className='cart-item'>
-              <Link href={`/product/${item.id}`} className='dontknow'>
-                {item.image ? (
-                 <Image src={item.image} alt={item.name} width={50} height={50} className="p" />
-                 ) : (
-                  <div>No Image Available</div>
-                )}
-                 </Link>
-                <select
-                  value={item.quantity}
-                  onChange={(e) => addToCartHandler(item, Number(e.target.value))}
-                >
-                  {[...Array(item.countInStock).keys()].map((x) => (
-                    <option key={x + 1} value={x + 1}>
-                      {x + 1}
-                    </option>
-                  ))}
-                </select>
+                <Link href={`/product/${item.id}`} className='product-link'>
+                  <div className="product-image">
+                    {item.image ? (
+                      <Image src={item.image} alt={item.name} width={50} height={50} />
+                    ) : (
+                      <div>No Image Available</div>
+                    )}
+                  </div>
+                  <div className="product-details">
+                    <div className="product-name">{item.name}</div>
+                    <div className="product-quantity">
+                      <select
+                        value={item.quantity}
+                        onChange={(e) => addToCartHandler(item, Number(e.target.value))}
+                      >
+                        {[...Array(item.countInStock).keys()].map((x) => (
+                          <option key={x + 1} value={x + 1}>
+                            {x + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </Link>
                 <button className='delete-btn' onClick={() => removeFromCartHandler(item.id)}>
                   Delete
                 </button>
@@ -66,6 +71,8 @@ const CartSidebar: React.FC = () => {
 };
 
 export default CartSidebar;
+
+
 
 
 
