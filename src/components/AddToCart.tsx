@@ -39,9 +39,10 @@ const AddToCart: React.FC<AddToCartProps> = ({
         if (increasePerClick) {
             console.log("Cart Items:", cartItems); // Log the cartItems array
             const existItem = cartItems.find((x) => x.id === product.id);
-            console.log("Existing Item:", existItem); // Log the existItem variable
+            console.log(cartItems, product); // Log the existItem variable
     
             if (!existItem) {
+                
                 console.log("Product not found in cart");
             }
     
